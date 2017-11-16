@@ -6,7 +6,7 @@ package cn.xjw.tpweb.db.bean;
  */
 public class UserBean {
 
-    private int id;
+    private int id;//主键ID
     private String loginID;
     private String address;
     private String details;
@@ -78,13 +78,17 @@ public class UserBean {
     public UserBean() {
     }
 
-    public UserBean(int id, String loginID, String address, String details, String loginDate, String phone, String pswd) {
-        this.id = id;
+    public UserBean(String loginID, String address, String details, String loginDate, String phone, String pswd) {
         this.loginID = loginID;
         this.address = address;
         this.details = details;
         this.loginDate = loginDate;
         this.phone = phone;
         this.pswd = pswd;
+    }
+
+    @Override
+    public String toString() {
+        return "loginID>" + loginID + ";pswd>" + pswd+ ";loginDate>" + loginDate;
     }
 }

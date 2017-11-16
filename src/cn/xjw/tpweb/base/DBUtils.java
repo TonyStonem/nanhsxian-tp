@@ -62,7 +62,7 @@ public class DBUtils {
         return statement;
     }
 
-    public static Object unique(String sql, RowParser parser, Object... params) {
+    public static Object read(String sql, RowParser parser, Object... params) {
         Object obj = null;
         try {
             PreparedStatement ps = createPS(sql, params);
@@ -79,4 +79,15 @@ public class DBUtils {
         return obj;
     }
 
+    public static boolean write(String sql, Object... params) {
+        try {
+            PreparedStatement ps = createPS(sql, params);
+            int i = ps.executeUpdate();
+            ps.close();
+            return i > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

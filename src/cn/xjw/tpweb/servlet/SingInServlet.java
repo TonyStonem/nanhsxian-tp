@@ -29,7 +29,7 @@ public class SingInServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
 
-        String username = req.getParameter("username");
+        String username = req.getParameter("name");
         String pswd = req.getParameter("pswd");
         if (username == null || username.isEmpty() || pswd == null || pswd.isEmpty()) {
             out.print("账号或密码不能为空");

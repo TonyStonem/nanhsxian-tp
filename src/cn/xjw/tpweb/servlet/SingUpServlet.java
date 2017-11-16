@@ -1,5 +1,9 @@
 package cn.xjw.tpweb.servlet;
 
+import cn.xjw.tpweb.db.bean.UserBean;
+import cn.xjw.tpweb.db.dao.SignInDao;
+import cn.xjw.tpweb.db.dao.SignUpDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +23,23 @@ public class SingUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-
+        UserBean b = SignInDao.query4LoginID(req.getParameter("name"));
+        if (b != null) {
+            resp.getWriter().write("该账号已注册");
+            return;
+        }
+        if (!SignUpDao.signUp(new UserBean(
+                req.getParameter("name"),
+                req.getParameter("address"),
+                req.getParameter("details"),
+                req.getParameter("loginDate"),
+                req.getParameter("phone"),
+                req.getParameter("pswd")
+        ))) {
+            resp.getWriter().write("注册失败");
+            return;
+        }
+        resp.getWriter().write("注册成功");
+        System.out.println("sign up.");
     }
 }

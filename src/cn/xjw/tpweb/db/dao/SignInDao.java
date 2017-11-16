@@ -12,7 +12,7 @@ public class SignInDao {
 
     public static UserBean query4LoginID(String loginID) {
         String sql = "select * from users where loginID = ?";
-        return (UserBean) DBUtils.unique(sql, new UserParser(), loginID);
+        return (UserBean) DBUtils.read(sql, new UserParser(), loginID);
     }
 
 }

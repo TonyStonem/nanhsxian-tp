@@ -15,7 +15,6 @@ public class UserParser implements RowParser {
     @Override
     public Object parserRow(ResultSet set) throws SQLException {
         return new UserBean(
-                set.getInt("id"),
                 set.getString("loginID"),
                 set.getString("address"),
                 set.getString("details"),

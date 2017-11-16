@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="nanhsxian-tp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/nanhsxian_tp_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="nanhsxian-tp/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="nanhsxian-tp" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
